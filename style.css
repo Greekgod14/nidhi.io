@@ -1,0 +1,499 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    font-family: 'Georgia', serif;
+    background: linear-gradient(135deg, rgba(255, 238, 230, 0.3) 0%, rgba(245, 230, 211, 0.3) 100%), url('krishna.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    color: #5d4037;
+    line-height: 1.6;
+    min-height: 100vh;
+    transition: all 0.5s ease;
+}
+
+body.dark-theme {
+    background: linear-gradient(135deg, rgba(25, 25, 35, 0.7) 0%, rgba(15, 15, 25, 0.7) 100%), url('krishna.png');
+    color: #e0d5c7;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.greeting-section {
+    text-align: center;
+    margin-bottom: 40px;
+    animation: fadeIn 1s ease-in;
+}
+
+.greeting-section h1 {
+    font-size: 2.5rem;
+    color: #8d4e2a;
+    margin-bottom: 15px;
+    font-weight: 300;
+}
+
+.greeting-section p {
+    font-size: 1.2rem;
+    color: #6d4c41;
+    font-style: italic;
+}
+
+.shloka-section {
+    margin-bottom: 40px;
+}
+
+.shloka-card {
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1), 0 2px 8px rgba(0, 0, 0, 0.05);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    animation: slideUp 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transform: translateZ(0);
+    will-change: transform;
+}
+
+.shloka-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.shloka-header h2 {
+    color: #8d4e2a;
+    font-size: 1.5rem;
+    margin: 0;
+}
+
+.gentle-btn:hover {
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    background: rgba(248, 187, 217, 0.35);
+}
+
+.shuffle-btn {
+    background: rgba(255, 204, 188, 0.25);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    color: #3e2723;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    transform: translateZ(0);
+    will-change: transform;
+}
+
+.shuffle-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+}
+
+.shloka-card h2 {
+    color: #8d4e2a;
+    margin-bottom: 25px;
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+.sanskrit {
+    font-size: 1.3rem;
+    color: #6d4c41;
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: 500;
+    line-height: 1.8;
+}
+
+.meaning {
+    font-size: 1.1rem;
+    color: #5d4037;
+    margin-bottom: 20px;
+    text-align: center;
+    font-style: italic;
+}
+
+.application {
+    font-size: 1rem;
+    color: #8d4e2a;
+    background: rgba(255, 204, 188, 0.3);
+    padding: 15px;
+    border-radius: 10px;
+    border-left: 4px solid #d7a98a;
+}
+
+.interaction-section {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.shloka-card:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15), 0 4px 12px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.shloka-card, .question-card, .response-card {
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 20px;
+    padding: 25px;
+    text-align: center;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1), 0 2px 8px rgba(0, 0, 0, 0.05);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transform: translateZ(0);
+    will-change: transform;
+}
+
+.question-card p {
+    font-size: 1.2rem;
+    color: #5d4037;
+    margin-bottom: 25px;
+}
+
+.emotion-buttons {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.question-card:hover, .response-card:hover {
+    transform: translateY(-3px) scale(1.01);
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.12), 0 3px 10px rgba(0, 0, 0, 0.06);
+}
+
+.emotion-buttons button {
+    background: rgba(255, 204, 188, 0.25);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 12px 20px;
+    border-radius: 25px;
+    font-size: 1rem;
+    color: #3e2723;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transform: translateZ(0);
+    will-change: transform;
+}
+
+.emotion-buttons button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.emotion-buttons button:hover {
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    background: rgba(255, 204, 188, 0.35);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.emotion-buttons button:active {
+    transform: translateY(0) scale(0.98);
+    transition: all 0.1s ease;
+}
+
+.gentle-btn {
+    background: rgba(248, 187, 217, 0.25);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 12px 30px;
+    border-radius: 25px;
+    font-size: 1rem;
+    color: #3e2723;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    margin-top: 20px;
+    transform: translateZ(0);
+    will-change: transform;
+}
+
+.gentle-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.hidden {
+    display: none;
+}
+
+.response-card {
+    animation: fadeIn 0.5s ease-in;
+}
+
+.response-card p {
+    font-size: 1.1rem;
+    color: #8d4e2a;
+    line-height: 1.8;
+}
+
+.shuffle-btn:hover {
+    transform: translateY(-1px) scale(1.05);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+    background: rgba(255, 204, 188, 0.35);
+}
+
+@keyframes fadeIn {
+    from { 
+        opacity: 0; 
+        transform: translateY(20px) scale(0.95); 
+    }
+    to { 
+        opacity: 1; 
+        transform: translateY(0) scale(1); 
+    }
+}
+
+@keyframes slideUp {
+    from { 
+        opacity: 0; 
+        transform: translateY(30px) scale(0.95); 
+    }
+    to { 
+        opacity: 1; 
+        transform: translateY(0) scale(1); 
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+    
+    .greeting-section h1 {
+        font-size: 2rem;
+    }
+    
+    .shloka-card, .question-card, .response-card {
+        padding: 20px;
+    }
+    
+    .emotion-buttons {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+.countdown-section {
+    margin-top: 15px;
+    text-align: center;
+}
+
+.countdown-item {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 15px;
+    padding: 10px 20px;
+    display: inline-block;
+    margin: 5px;
+}
+
+#next-event {
+    display: block;
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+#countdown-timer {
+    display: block;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #8d4e2a;
+}
+
+.controls-bar {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 20px 0;
+}
+
+.control-btn {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.control-btn:hover {
+    transform: translateY(-2px) scale(1.1);
+    background: rgba(255, 255, 255, 0.25);
+}
+
+.shloka-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.shloka-header h2 {
+    color: #8d4e2a;
+    font-size: 1.5rem;
+    margin: 0;
+}
+
+.shloka-controls {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.mood-select {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 15px;
+    padding: 5px 10px;
+    color: #5d4037;
+    font-size: 0.9rem;
+}
+
+.transliteration {
+    font-size: 1rem;
+    color: #8d4e2a;
+    font-style: italic;
+    margin-bottom: 15px;
+    opacity: 0.8;
+}
+
+.mantra-section, .journal-section {
+    margin-bottom: 30px;
+}
+
+.mantra-card, .journal-card {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 20px;
+    padding: 25px;
+    text-align: center;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.mantra-display {
+    margin: 20px 0;
+}
+
+#mantra-count {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #8d4e2a;
+    display: block;
+}
+
+.mantra-btn {
+    background: rgba(255, 204, 188, 0.25);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 25px;
+    padding: 15px 30px;
+    font-size: 1.1rem;
+    color: #3e2723;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    margin: 10px;
+}
+
+.mantra-btn:hover {
+    transform: translateY(-2px) scale(1.05);
+    background: rgba(255, 204, 188, 0.35);
+}
+
+.reset-btn, .save-btn {
+    background: rgba(248, 187, 217, 0.25);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    padding: 8px 16px;
+    font-size: 0.9rem;
+    color: #3e2723;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    margin: 5px;
+}
+
+.reset-btn:hover, .save-btn:hover {
+    transform: translateY(-1px) scale(1.05);
+    background: rgba(248, 187, 217, 0.35);
+}
+
+#journal-text {
+    width: 100%;
+    min-height: 120px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 15px;
+    padding: 15px;
+    color: #5d4037;
+    font-family: 'Georgia', serif;
+    font-size: 1rem;
+    resize: vertical;
+    margin: 15px 0;
+}
+
+#journal-text::placeholder {
+    color: rgba(93, 64, 55, 0.6);
+}
+
+.dark-theme .countdown-item,
+.dark-theme .control-btn,
+.dark-theme .shloka-card,
+.dark-theme .question-card,
+.dark-theme .response-card,
+.dark-theme .mantra-card,
+.dark-theme .journal-card {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.dark-theme .mood-select,
+.dark-theme #journal-text {
+    background: rgba(255, 255, 255, 0.08);
+    color: #e0d5c7;
+}
+
+.dark-theme #journal-text::placeholder {
+    color: rgba(224, 213, 199, 0.6);
+}

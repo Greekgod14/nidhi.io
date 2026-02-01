@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nidhi Mahathi's Spiritual Companion</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header class="greeting-section">
+            <h1 id="greeting"></h1>
+            <p id="time-message"></p>
+            <div class="countdown-section">
+                <div class="countdown-item">
+                    <span id="next-event">Next Sunrise</span>
+                    <span id="countdown-timer">--:--:--</span>
+                </div>
+            </div>
+        </header>
+
+        <div class="controls-bar">
+            <button onclick="toggleTheme()" class="control-btn">🌙</button>
+            <button onclick="toggleAmbientSound()" class="control-btn">🎵</button>
+            <button onclick="toggleJournal()" class="control-btn">📝</button>
+            <button onclick="toggleMantraCounter()" class="control-btn">📿</button>
+        </div>
+
+        <main>
+            <section class="shloka-section">
+                <div class="shloka-card">
+                    <div class="shloka-header">
+                        <h2>🕉️ Today's Wisdom</h2>
+                        <div class="shloka-controls">
+                            <select id="mood-filter" onchange="filterByMood()" class="mood-select">
+                                <option value="all">All Moods</option>
+                                <option value="peace">Peace</option>
+                                <option value="strength">Strength</option>
+                                <option value="wisdom">Wisdom</option>
+                                <option value="love">Love</option>
+                            </select>
+                            <button onclick="shuffleShloka()" class="shuffle-btn">🔀 Shuffle</button>
+                        </div>
+                    </div>
+                    <div id="shloka-content">
+                        <p class="sanskrit" id="sanskrit-text" title="Click for pronunciation"></p>
+                        <p class="transliteration" id="transliteration-text"></p>
+                        <p class="meaning" id="meaning-text"></p>
+                        <p class="application" id="application-text"></p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="mantra-section hidden" id="mantra-counter">
+                <div class="mantra-card">
+                    <h3>📿 Daily Mantra Counter</h3>
+                    <div class="mantra-display">
+                        <span id="mantra-count">0</span>
+                        <p>Om Namah Shivaya</p>
+                    </div>
+                    <button onclick="incrementMantra()" class="mantra-btn">🕉️ Chant</button>
+                    <button onclick="resetMantra()" class="reset-btn">Reset</button>
+                </div>
+            </section>
+
+            <section class="journal-section hidden" id="journal">
+                <div class="journal-card">
+                    <h3>💭 Daily Reflection</h3>
+                    <textarea id="journal-text" placeholder="Share your thoughts with the divine, Nidhi Mahathi..."></textarea>
+                    <button onclick="saveJournal()" class="save-btn">Save Reflection</button>
+                </div>
+            </section>
+
+            <section class="interaction-section">
+                <div id="question-card" class="question-card">
+                    <p id="daily-question"></p>
+                    <div class="emotion-buttons">
+                        <button onclick="respondToEmotion('peaceful')">Peaceful 🕊️</button>
+                        <button onclick="respondToEmotion('stressed')">Stressed 😰</button>
+                        <button onclick="respondToEmotion('sad')">Sad 💙</button>
+                        <button onclick="respondToEmotion('grateful')">Grateful 🙏</button>
+                    </div>
+                </div>
+                
+                <div id="response-card" class="response-card hidden">
+                    <p id="emotional-response"></p>
+                    <button onclick="showQuestion()" class="gentle-btn">Thank you 💛</button>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <audio id="ambient-sound" loop>
+        <source src="https://www.soundjay.com/misc/sounds/temple-bell.mp3" type="audio/mpeg">
+    </audio>
+
+    <script src="script.js"></script>
+</body>
+</html>
